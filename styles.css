@@ -1,0 +1,29 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+
+}
+
+.header{
+    text-align: center;
+    background-color: beige;
+    font-size: 40px;
+}
+
+.all {
+    display: grid;
+    grid-auto-flow: row;
+}
+
+button{
+    height: 100px;
+    width: 190px;
+    font-size: 30px;
+    border-radius: 50px;
+    justify-self: center;
+    background-color: burlywood;
+    color: rgb(75, 36, 75);
+    box-shadow: 5px 10px #ed0606;
+}
