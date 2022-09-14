@@ -12,9 +12,17 @@ body {
     font-size: 40px;
 }
 
+
+
+
 .all {
     display: grid;
     grid-auto-flow: row;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
 }
 
 button{
@@ -26,4 +34,19 @@ button{
     background-color: burlywood;
     color: rgb(75, 36, 75);
     box-shadow: 5px 10px #ed0606;
+}
+
+input{
+    height: 50px;
+    border-radius: 50px;
+    font-size: 25px;
+    padding-left: 20px;
+}
+
+#Read {
+    max-width: 100px;
+}
+
+#Pages {
+    max-width: 100px;
 }
