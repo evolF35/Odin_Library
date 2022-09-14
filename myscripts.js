@@ -121,6 +121,7 @@ function addBookToLibrary(){
 function displayBooks(){
     shelf.innerHTML = "";
     shelf.style.display = "flex";
+    shelf.style.flexWrap = "wrap";
 
     formTitle.value = "";
     formAuthor.value = "";
@@ -163,11 +164,21 @@ function displayBooks(){
         pdelete.style.color = "white";
         pdelete.style.maxHeight = "50px";
         pdelete.innerText = "Delete";
+    
+        let edit = document.createElement("button");
+        edit.setAttribute('class','pedit');
+        edit.setAttribute('id',`ped${i}`);
+        edit.style.boxShadow = "0px 0px";
+        edit.style.backgroundColor = "white";
+        edit.style.color = "black";
+        edit.style.maxHeight = "50px";
+        edit.innerText = "Edit";
 
         card.appendChild(pTitle);
         card.appendChild(pAuthor);
         card.appendChild(pPages);
         card.appendChild(pRead);
+        card.appendChild(edit);
         card.appendChild(pdelete);
 
         card.style.border = "2px solid black";
@@ -193,10 +204,18 @@ function displayBooks(){
 
             deleteCard(index);
         })
+
+        let el = document.querySelector(`#ped${i}`);
+
+        el.addEventListener('click', ()=>{
+            let index = el.id;
+
+            index = index.replace("ped","");
+            index = +index;
+
+            editCard(index);
+        })
     }
-
-
-
 }
 
 function deleteCard(index) {
@@ -206,5 +225,32 @@ function deleteCard(index) {
 
 
     myLibrary.splice(index,1);
+}
+
+
+function editCard(index){
+
+formTitle.value = myLibrary[index].title;
+formAuthor.value = myLibrary[index].author;
+formPages.value = myLibrary[index].pages;
+formRead.value = myLibrary[index].read;
+
+deleteCard(index);
+
+oldButton.innerHTML = "";
+
+shelf.innerHTML = "";
+shelf.style.display = "grid";
+
+form.appendChild(formTitle);
+form.appendChild(formAuthor);
+form.appendChild(formPages);
+form.appendChild(formRead);
+
+container.appendChild(form);
+
+shelf.appendChild(container);
+
+shelf.appendChild(submit);
 
 }
