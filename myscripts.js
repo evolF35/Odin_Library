@@ -116,6 +116,7 @@ function addBookToLibrary(){
     myLibrary.push(book);
 }
 
+
 function displayBooks(){
     shelf.innerHTML = "";
     shelf.style.display = "flex";
@@ -129,6 +130,8 @@ function displayBooks(){
     
     for(let i = 0; i < myLibrary.length; i++){
         let card = document.createElement("div");
+        card.setAttribute('id',`Card_${i}`);
+
 
         let cardTitle = myLibrary[i].title;
         let cardAuthor = myLibrary[i].author;
@@ -151,12 +154,18 @@ function displayBooks(){
         let pRead = document.createElement("p");
         pRead.innerText = cardRead;
 
-
+        let pdelete = document.createElement("button");
+        pdelete.style.boxShadow = "0px 0px";
+        pdelete.style.backgroundColor = "black";
+        pdelete.style.color = "white";
+        pdelete.style.maxHeight = "50px";
+        pdelete.innerText = "Delete";
 
         card.appendChild(pTitle);
         card.appendChild(pAuthor);
         card.appendChild(pPages);
         card.appendChild(pRead);
+        card.appendChild(pdelete);
 
         card.style.border = "2px solid black";
         card.style.borderRadius = "40px";
@@ -167,6 +176,17 @@ function displayBooks(){
         card.style.alignItems = "center";
         card.style.fontFamily = "'Times New Roman', Times, serif"
 
+        
         shelf.appendChild(card);    
     }
+}
+
+pdelete.addEventListener('click',()=>
+{
+    console.log(pdelete);
+});
+
+
+function deleteCard() {
+
 }
